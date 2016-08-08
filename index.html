@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+<head>
+    <meta charset="UTF-8">
+    <title>喵星</title>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="yes" name="apple-touch-fullscreen" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta content="fullscreen=yes,useHistoryState=yes,transition=yes" name="App-Config" />
+    <meta content="width=device-width,user-scalable=no,minimal-ui=true" name="viewport" id="cocosMetaElement" />
+    <link href="favicon.png" rel="apple-touch-icon-precomposed" />
+    <link href="favicon.png" rel="Shortcut Icon" type="image/x-icon" />
+</head>
+<style>
+    body,html{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    #shareIcon{
+        position: absolute;
+        left: 0;
+        top:0;
+        opacity: 0;
+        z-index: -1;
+    }
+</style>
+<body>
+<img src="favicon.png" id="shareIcon" alt="">
+<script>
+    var userData = {
+        userId:'',  //这个参数前端没有用到，后台录入数据时自行取用
+        clock: 12,  //时间道具的数量
+        scores:{    //各关的分数
+            PaintTheCat:162
+        }
+    };
+    var pageConfig = {
+        helpURL:'javascript:alert("这个按钮将会链接到活动说明页面");',
+        rankingURL:'javascript:alert("这个按钮将会链接到排名页面");',
+        exchangeURL:'javascript:alert("这个按钮将会链接到兑换道具的页面");',
+        shareURL:'web/share.html#game={{arg_1}}&score={{arg_2}}&rank={{arg_3}}&backURL={{arg_4}}'
+    };
+
+    var useClock = function(callback,target){
+        //这个方法作用是使用时钟道具，在服务器端需要道具数－1
+        //这个方法需要修改成真正的AJAX方法
+
+        setTimeout(function(){
+            userData.clock -= 1;
+            callback.call(target,true);             //第二个参数返回FALSE表示服务器连接失败
+        },500);
+    };
+
+    var setServerStart = function(gameName){
+        console.log(gameName);
+        //这个方法作用是游戏开始和服务器进行一次通讯记录游戏开始时间，并和游戏结束时间比较，防变速齿轮外挂
+        //这个方法需要修改成真正的AJAX方法
+    };
+    var gameOver = function(gameName,score,time,callback,target){
+        console.log(gameName,score,time);
+        console.log(new KeyG().decode64(score.ls,score.key));
+
+        //这个方法作用是游戏结束记录分数，并返回排行百分比
+        //这个方法需要修改成真正的AJAX方法
+
+        setTimeout(function(){
+            var precent = "70%";                    //模拟的返回百分比格式
+            callback.call(target,precent);          //第二个参数返回FALSE表示服务器连接失败
+        },500);
+    };
+
+</script>
+<canvas id="gameCanvas" width="640" height="1008"></canvas>
+
+<script type="text/javascript" src="cocos2d-js-v3.8-min.js"></script>
+<script type="text/javascript" src="src/main.js"></script>
+</body>
+</html>

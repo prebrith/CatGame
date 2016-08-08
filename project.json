@@ -1,0 +1,19 @@
+{
+    "debugMode"     : 1,
+    "showFPS"       : false,
+    "frameRate"     : 60,
+    "id"            : "gameCanvas",
+    "renderMode"    : 0,
+    "jsList"        : [
+        "src/public.js",
+        "src/resource.js",
+        "src/result.js",
+        "src/start.js",
+        "src/Layers/PaintTheCat.js",
+        "src/Layers/FruitCat.js",
+        "src/Layers/JumpCat.js",
+        "src/Layers/TreatTheCat.js",
+        "src/Layers/StepCat.js",
+        "src/game.js"
+    ]
+}

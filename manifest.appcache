@@ -1,0 +1,22 @@
+CACHE MANIFEST
+# 2012-02-21 v1.0.3
+./cocos2d-js-v3.8-min.js
+./favicon.png
+./res/bg.jpg
+./res/endBg.jpg
+./res/mainBg.jpg
+./res/ui.plist
+./res/ui.png
+./res/boom.plist
+./res/boom.png
+./res/catIndex.plist
+./res/catIndex.png
+./res/font.fnt
+./res/font.png
+./res/scoreFont.fnt
+./res/scoreFont.png
+
+NETWORK:
+*
+
+FALLBACK:
